@@ -7,6 +7,7 @@
   * App Config
   */
 export const appConfig =  {
+    auth: false,
     port: 21000,
 };
 

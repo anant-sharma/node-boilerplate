@@ -17,11 +17,11 @@ const app = express();
 app.use(morgan('dev'));
 app.use(cors());
 app.use(helmet());
-app.use(bodyParser.json({limit: 524288000}));
-app.use(bodyParser.urlencoded({extended: true, limit: 524288000}));
+app.use(bodyParser.json({ limit: 524288000 }));
+app.use(bodyParser.urlencoded({ extended: true, limit: 524288000 }));
 
 app.use(router);
 
 app.listen(appConfig.port, () => {
-    console.log (`Server Started on Port ${appConfig.port}`);
+    console.log(`Server Started on Port ${appConfig.port}`);
 });

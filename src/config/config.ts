@@ -3,10 +3,10 @@
  * required to run the app
  */
 
- /**
-  * App Config
-  */
-export const appConfig =  {
+/**
+ * App Config
+ */
+export const appConfig = {
     auth: false,
     port: 21000,
 };
@@ -35,7 +35,5 @@ export const jwtConfig = {
  * Paths
  */
 export const paths = {
-    whitelisted: [
-        '/auth',
-    ],
+    whitelisted: ['/auth'],
 };

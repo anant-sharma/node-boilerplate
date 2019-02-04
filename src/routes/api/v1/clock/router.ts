@@ -12,8 +12,7 @@ const router = express.Router();
 /**
  * Bind Routes
  */
-router.get('/', (req: express.Request, res: express.Response, next: express.NextFunction) => {
-
+router.get('/', (req: express.Request, res: express.Response) => {
     /**
      * Create clock
      */
@@ -32,9 +31,6 @@ router.get('/', (req: express.Request, res: express.Response, next: express.Next
             error: e,
         });
     }
-
-    if (next) { next(); }
-
 });
 
 /**

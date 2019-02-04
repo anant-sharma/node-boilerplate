@@ -9,7 +9,6 @@
 import * as moment from 'moment';
 
 export class Clock {
-
     public timestamp: any;
 
     constructor() {
@@ -17,11 +16,6 @@ export class Clock {
     }
 
     public getTimestamp() {
-
-        const {
-            timestamp,
-        } = this;
-
-        return timestamp;
+        return this.timestamp;
     }
 }

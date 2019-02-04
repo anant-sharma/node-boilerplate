@@ -5,7 +5,6 @@
 import * as bcrypt from 'bcryptjs';
 
 export class Bcrypt {
-
     private saltRounds: number;
 
     constructor() {

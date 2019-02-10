@@ -13,7 +13,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
     oneofs: true,
 });
 const protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
-const clockProtoDescriptor: any = protoDescriptor.v1clock;
+const v1ProtoDescriptor: any = protoDescriptor.v1;
 
 function getTimeStamp(call: grpc.Call, callback: any) {
     /**
@@ -33,7 +33,7 @@ function getTimeStamp(call: grpc.Call, callback: any) {
 }
 
 export const addProtoService = (server: grpc.Server): void => {
-    server.addService(clockProtoDescriptor.Clock.service, {
+    server.addService(v1ProtoDescriptor.Clock.service, {
         GetTimeStamp: getTimeStamp,
     });
 };

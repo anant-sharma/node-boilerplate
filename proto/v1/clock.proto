@@ -5,7 +5,7 @@ option java_package = "io.nodeboilerplate.v1.clock";
 option java_outer_classname = "ClockProto";
 option objc_class_prefix = "CLK";
 
-package v1clock;
+package v1;
 
 // Interface exported by the server.
 service Clock {

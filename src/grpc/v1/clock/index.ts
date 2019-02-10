@@ -3,7 +3,7 @@ import * as grpc from 'grpc';
 import * as path from 'path';
 import { Clock } from '../../../modules/v1/clock';
 
-const PROTO_PATH = path.join(__dirname, '../../../../proto/v1/clock.proto');
+const PROTO_PATH = path.join(__dirname, '../../../../protos/v1/clock.proto');
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
     defaults: true,

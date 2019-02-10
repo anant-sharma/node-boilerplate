@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.nodeboilerplate.v1.clock";
+option java_outer_classname = "ClockProto";
+option objc_class_prefix = "CLK";
+
+package v1clock;
+
+// Interface exported by the server.
+service Clock {
+
+    // Returns Current Timestamp
+    rpc GetTimeStamp(Null) returns (Timestamp) {}
+}
+
+message Null {}
+
+message Timestamp {
+    int32 timestamp = 0;
+}

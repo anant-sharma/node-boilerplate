@@ -17,5 +17,5 @@ service Clock {
 message Null {}
 
 message Timestamp {
-    int32 timestamp = 0;
+    double timestamp = 0;
 }

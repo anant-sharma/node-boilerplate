@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "Boilerplate for nodejs applications",
     "main": "src/index.js",
+    "engines": {
+        "node": ">=10.15.0"
+    },
     "scripts": {
         "build": "./node_modules/typescript/bin/tsc --project ./tsconfig.json",
         "build:watch": "./node_modules/typescript/bin/tsc --project ./tsconfig.json --watch",

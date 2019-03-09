@@ -1,7 +1,7 @@
 import * as protoLoader from '@grpc/proto-loader';
 import * as grpc from 'grpc';
 import * as path from 'path';
-import { Clock } from '../../../modules/v1/clock';
+import { Clock } from '../../../controllers/v1/clock';
 
 const PROTO_PATH = path.join(__dirname, '../../../../protos/v1/clock.proto');
 

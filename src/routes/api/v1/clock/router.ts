@@ -2,7 +2,7 @@
  * Import Dependencies
  */
 import * as express from 'express';
-import { Clock } from '../../../../modules/v1/clock';
+import { Clock } from '../../../../controllers/v1/clock';
 
 /**
  * Initialize Router

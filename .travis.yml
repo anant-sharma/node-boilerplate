@@ -1,11 +1,14 @@
 language: node_js
 node_js:
-  - 10.15
-
+- 10.15
 before_script:
-  - npm run build
-
+- npm run build
 script:
-  - npm run lint
-  - npm run prettier
-  - npm run test
+- npm run lint
+- npm run prettier
+- npm run test
+deploy:
+  provider: heroku
+  api_key:
+    secure: daL2HPO5lwREvzg7x18GM1sf5jX7tH8onfOanB6cSageRKTvOUlTIJsfRl+RB1qIcaX3TRaYWRgU0fiepl10b7B5xvCYTU3GQrLcKv0c5NoMwL9XkhgP6FZPOxwu4tDtuFT1fadIE3oUK9KgWlCpSD38m/Cd8BKLFwMa40F6Fo9bYqmKFWhfAIt3mv+M4LR3rxE4p5DXzzQbdXs959rnwwrdl6GhyFdudnSVEoNGsJ8rHbEEOKWFrLT/PbOjLqUnElxUDufBN7B2214I7Ejg4TVTRsC2t4siKRwKrDwB6WskCzeHKTI2JW4SCC01TNxPx3Kt6BEakFTdWaWtV+0WZc8oKxkYCVkom/JlC3OztSiS63lR2NXznbMND9pBN8rsF4LrPhCHh+qncAJVcV11AWEE8/aqGaaoFnz1ECkwxLsfHdVvHbAJ6fKfyf9aPPL3catVGLTCwWd0GYJnhXaPs0F8doPp0+IIrsBxdVLbb99TeVc+gYBBA4tcziirk1rmdP8mklOr40pYOS98yJJlh6UEFmVLvxW9GKIwtfJfEXQMv8Bs9vv5X0qkU4F1pAF9atSgjuwrTl8WbE+jBJJbHKwYFTHEfW1Z6IPgYEpbslz3C7flXrYRAuzycDFHSCaOIMKW+Px3bKOXPRqwWAeT+8prrOY+R9k/GtDf5QA/dIs=
+  app: clock-boilerplate

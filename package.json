@@ -11,7 +11,7 @@
         "build:watch": "./node_modules/typescript/bin/tsc --project ./tsconfig.json --watch",
         "lint": "./node_modules/tslint/bin/tslint -c ./tslint.json --project ./tsconfig.json --format codeFrame",
         "lint:fix": "./node_modules/tslint/bin/tslint -c ./tslint.json --project ./tsconfig.json --format codeFrame --fix",
-        "start": "npm run build && node dist/index.js",
+        "start": "node dist/index.js",
         "test": "npx jest",
         "test:watch": "npx jest --watch",
         "prettier": "./node_modules/prettier/bin-prettier.js --debug-check \"{,!(node_modules|dist|build|coverage)/**/}*.{js,jsx,ts,tsx,json}\"",

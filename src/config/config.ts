@@ -8,7 +8,7 @@
  */
 export const appConfig = {
     auth: false,
-    port: 21000,
+    port: process.env.PORT || 21000,
 };
 
 /**

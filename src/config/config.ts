@@ -8,6 +8,7 @@
  */
 export const appConfig = {
     auth: false,
+    http2port: process.env.HTTP2_PORT || 21001,
     port: process.env.PORT || 21000,
 };
 

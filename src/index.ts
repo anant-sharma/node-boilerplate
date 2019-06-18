@@ -75,30 +75,20 @@ const initHTTP2Server = async () => {
 
     app.use(router);
 
-    spdy.createServer(options, app).listen(
-        appConfig.http2port,
-        (err: Error) => {
-            if (err) {
-                console.trace(err);
-                return process.exit(1);
-            }
-
-            console.log(`HTTP2 Server Started on Port ${appConfig.http2port}`);
+    spdy.createServer(options, app).listen(appConfig.http2port, (err: Error) => {
+        if (err) {
+            console.trace(err);
+            return process.exit(1);
         }
-    );
+
+        console.log(`HTTP2 Server Started on Port ${appConfig.http2port}`);
+    });
 };
 
-const ensureCertificates = (
-    serverKeyFilePath: string,
-    certFilePath: string
-) => {
+const ensureCertificates = (serverKeyFilePath: string, certFilePath: string) => {
     return new Promise(async (resolve, reject) => {
-        const serverKeyFilePathExists = await fs
-            .pathExists(serverKeyFilePath)
-            .catch(e => console.trace(e));
-        const certFilePathExists = await fs
-            .pathExists(certFilePath)
-            .catch(e => console.trace(e));
+        const serverKeyFilePathExists = await fs.pathExists(serverKeyFilePath).catch(e => console.trace(e));
+        const certFilePathExists = await fs.pathExists(certFilePath).catch(e => console.trace(e));
 
         if (!(serverKeyFilePathExists && certFilePathExists)) {
             const certDir = path.join(__dirname, '..', 'certs');

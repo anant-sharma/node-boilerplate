@@ -18,10 +18,7 @@ export default (req: any, res: any, next?: express.NextFunction) => {
             /**
              * Check for Authorization Token
              */
-            if (
-                req.headers.authorization &&
-                req.headers.authorization.split(' ')[0] === 'Bearer'
-            ) {
+            if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
                 token = req.headers.authorization.split(' ')[1];
             } else if (req.query && req.query.token) {
                 token = req.query.token;
@@ -37,24 +34,19 @@ export default (req: any, res: any, next?: express.NextFunction) => {
         /**
          * Verify JWT Token
          */
-        jwt.verify(
-            token,
-            jwtConfig.secret,
-            jwtConfig.options,
-            (err, decoded) => {
-                if (err) {
-                    res.status(401).send({
-                        error: 'A valid authorization token is required.',
-                        status: 'error',
-                    });
-                    return;
-                }
-
-                if (next) {
-                    next();
-                }
+        jwt.verify(token, jwtConfig.secret, jwtConfig.options, (err, decoded) => {
+            if (err) {
+                res.status(401).send({
+                    error: 'A valid authorization token is required.',
+                    status: 'error',
+                });
+                return;
             }
-        );
+
+            if (next) {
+                next();
+            }
+        });
     } else {
         if (next) {
             next();

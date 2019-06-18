@@ -11,7 +11,5 @@ test('It should create instance of Clock', () => {
 
 test('It should return current time', () => {
     const clock = new Clock();
-    expect(Number(clock.getTimestamp())).toBeLessThanOrEqual(
-        Number(moment().format('x'))
-    );
+    expect(Number(clock.getTimestamp())).toBeLessThanOrEqual(Number(moment().format('x')));
 });

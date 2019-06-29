@@ -2,14 +2,16 @@
  * This file contins the config
  * required to run the app
  */
+import { config as dotenvConfig } from 'dotenv';
+dotenvConfig();
 
 /**
  * App Config
  */
 export const appConfig = {
     auth: false,
-    http2port: process.env.HTTP2_PORT || 21001,
-    port: process.env.PORT || 21000,
+    http2port: Number(process.env.HTTP2_PORT) || 21001,
+    port: Number(process.env.PORT) || 21000,
 };
 
 /**
@@ -17,7 +19,6 @@ export const appConfig = {
  */
 export const dbConfig = {
     connectionString: process.env.dbConnectionString || '',
-    // connectionString: `mongodb://<username>:<password>@chipserver.ml:27017/fleet-management?authSource=admin`,
 };
 
 /**
@@ -37,4 +38,11 @@ export const jwtConfig = {
  */
 export const paths = {
     whitelisted: ['/auth'],
+};
+
+/**
+ * MQ Config
+ */
+export const mqConfig = {
+    url: process.env.mqConnectionString || 'amqp://localhost:5672',
 };

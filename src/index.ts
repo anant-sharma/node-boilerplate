@@ -9,15 +9,20 @@ import * as fs from 'fs-extra';
 import * as grpc from 'grpc';
 import * as helmet from 'helmet';
 import * as morgan from 'morgan';
+import * as opentracing from 'opentracing';
 import * as path from 'path';
 import * as spdy from 'spdy';
 import * as util from 'util';
+import { Tracing } from './common/tracing';
 import { appConfig } from './config/config';
 import { addServices as addGrpcServices } from './grpc/';
 import router from './routes/router';
 
+Tracing.init();
+
 const initAppServer = () => {
     const app = express();
+    const span = Tracing.tracer.startSpan('app_server_init');
 
     /**
      * App Middlewares
@@ -30,7 +35,15 @@ const initAppServer = () => {
 
     app.use(router);
 
-    app.listen(appConfig.port, () => {
+    app.listen(appConfig.port, (err: Error) => {
+        if (err) {
+            // Trace
+            span.setTag(opentracing.Tags.ERROR, true);
+            span.log({ event: 'error', 'error.object': err, message: err.message, stack: err.stack });
+            span.finish();
+
+            process.exit(-1);
+        }
         console.log(`Server Started on Port ${appConfig.port}`);
     });
 };

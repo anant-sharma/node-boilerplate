@@ -62,7 +62,3 @@ dist/
 
 # IDE Folder
 .vscode
-
-#Cert Files
-certs/
-!certs/cert-gen.sh

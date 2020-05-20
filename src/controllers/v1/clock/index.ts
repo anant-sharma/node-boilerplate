@@ -6,16 +6,16 @@
 /**
  * Module Dependencies
  */
-import * as moment from 'moment';
+import moment from 'moment';
 
 export class Clock {
-    public timestamp: any;
+	public timestamp: any;
 
-    constructor() {
-        this.timestamp = moment().format('x');
-    }
+	constructor() {
+		this.timestamp = moment().format('x');
+	}
 
-    public getTimestamp() {
-        return this.timestamp;
-    }
+	public getTimestamp() {
+		return this.timestamp;
+	}
 }

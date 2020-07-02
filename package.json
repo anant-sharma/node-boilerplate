@@ -39,7 +39,7 @@
 		"moment": "^2.26.0",
 		"mongoose": "^5.9.15",
 		"morgan": "^1.10.0",
-		"typescript": "^3.9.3",
+		"typescript": "^3.9.6",
 		"uuid": "^8.0.0"
 	},
 	"devDependencies": {

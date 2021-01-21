@@ -37,7 +37,7 @@
 		"jsonwebtoken": "^8.5.1",
 		"lodash": "^4.17.15",
 		"moment": "^2.26.0",
-		"mongoose": "^5.9.15",
+		"mongoose": "^5.11.13",
 		"morgan": "^1.10.0",
 		"typescript": "^3.9.3",
 		"uuid": "^8.0.0"

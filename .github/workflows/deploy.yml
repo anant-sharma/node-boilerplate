@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Chip Cluster
+        id: deploy
         uses: anant-sharma/chip-config-fetch@v2.9.0
         with:
           access_token: ${{ secrets.ACCESS_TOKEN }}
@@ -29,4 +30,4 @@ jobs:
           author_name: ${{ env.GITHUB_ACTOR }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEBHOOK_URL: ${{ steps.configfetch.outputs.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_URL: ${{ steps.deploy.outputs.SLACK_WEBHOOK }}

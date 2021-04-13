@@ -3,6 +3,7 @@
 
 name: Build and Deploy
 on:
+  workflow_dispatch:
   push:
     branches: [master]
 jobs:
@@ -13,10 +14,10 @@ jobs:
       - name: Check out code into the Node module directory
         uses: actions/checkout@v2
         
-      - name: Use Node.js 12.x
+      - name: Use Node.js 15.x
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 15.x
       
       - name: Install Dependencies
         if: success()
@@ -58,7 +59,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{steps.configfetch.outputs.DOCKER_USER}}/${{steps.configfetch.outputs.DOCKER_IMAGE_NAME}}:${{steps.configfetch.outputs.TAG}}
+          tags: |
+            ${{steps.configfetch.outputs.DOCKER_USER}}/${{steps.configfetch.outputs.DOCKER_IMAGE_NAME}}:${{steps.configfetch.outputs.TAG}}
+            ${{steps.configfetch.outputs.DOCKER_USER}}/${{steps.configfetch.outputs.DOCKER_IMAGE_NAME}}:${{github.sha}}
 
       - name: Deploy to Chip Cluster
         if: success()

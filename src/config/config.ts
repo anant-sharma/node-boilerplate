@@ -10,7 +10,7 @@ dotenvConfig();
  */
 export const appConfig = {
 	auth: false,
-	port: Number(process.env.PORT) || 21000,
+	port: Number(process.env.PORT) || 8080,
 };
 
 /**
@@ -26,7 +26,7 @@ export const dbConfig = {
 export const jwtConfig = {
 	options: {
 		algorithm: 'HS256',
-		expiresIn: 3600,
+		expiresIn: 365 * 3600,
 		issuer: 'Chipserver',
 	},
 	secret: 'appsecret',

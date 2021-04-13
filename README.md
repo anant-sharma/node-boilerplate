@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/anant-sharma/node-boilerplate.svg?branch=master)](https://travis-ci.org/anant-sharma/node-boilerplate)
+[![Build Status](https://github.com/anant-sharma/node-boilerplate/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/anant-sharma/node-boilerplate/actions/workflows/build-and-deploy.yml)
 
 # Node Boilerplate
 

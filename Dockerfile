@@ -1,4 +1,4 @@
-FROM node:12.13.0
+FROM node:15.14.0
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -18,5 +18,5 @@ COPY . .
 # Build Source
 RUN npm run build
 
-EXPOSE 21000
+EXPOSE 8080
 CMD [ "npm", "start" ]

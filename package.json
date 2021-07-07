@@ -52,7 +52,7 @@
 		"@types/mongoose": "^5.7.21",
 		"@types/morgan": "^1.9.0",
 		"@types/uuid": "^8.0.0",
-		"husky": "^4.2.5",
+		"husky": "^7.0.1",
 		"lint-staged": "^10.2.4",
 		"prettier": "2.0.5",
 		"ts-jest": "^26.0.0",

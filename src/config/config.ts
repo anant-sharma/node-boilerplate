@@ -11,6 +11,7 @@ dotenvConfig();
 export const appConfig = {
 	auth: false,
 	port: Number(process.env.PORT) || 8080,
+	gqlPort: Number(process.env.GQL_PORT) || 8081,
 };
 
 /**

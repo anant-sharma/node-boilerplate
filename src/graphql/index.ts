@@ -1,0 +1,48 @@
+import { GraphQLServer } from 'graphql-yoga';
+
+const typeDefs = `
+	type Query {
+		greeting(name: String, position: String): String!
+		hello: String!
+		name: String!
+		me: User!
+	}
+
+	type User {
+		id: ID!
+		name: String!
+		email: String!
+		age: Int
+	}
+`;
+
+const resolvers = {
+	Query: {
+		greeting(_: any, args: any) {
+			if (args.name && args.position) {
+				return `Hello, ${args.name}!. You are my go to ${args.position}`;
+			}
+
+			return 'Hello!';
+		},
+		hello() {
+			return 'Hello GraphQL!';
+		},
+		name() {
+			return 'My name is Boilerplate';
+		},
+		me() {
+			return {
+				id: 'abc123',
+				name: 'Boilerplate',
+				email: 'boiler@plate.in',
+				age: 23,
+			};
+		},
+	},
+};
+
+export const server = new GraphQLServer({
+	typeDefs,
+	resolvers,
+});

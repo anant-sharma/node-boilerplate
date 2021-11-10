@@ -6,6 +6,8 @@ const typeDefs = `
 		hello: String!
 		name: String!
 		me: User!
+		grades: [Int!]!
+		addMany(numbers: [Float!]!): Float!
 	}
 
 	type User {
@@ -38,6 +40,18 @@ const resolvers = {
 				email: 'boiler@plate.in',
 				age: 23,
 			};
+		},
+		grades() {
+			return [10, 12, 14, 16];
+		},
+		addMany(_: any, args: any) {
+			if (args.numbers.length === 0) {
+				return 0;
+			}
+
+			return args.numbers.reduce((result: number, value: number) => {
+				return result + value;
+			}, 0);
 		},
 	},
 };

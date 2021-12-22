@@ -5,7 +5,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import moment from 'moment';
-import { jwtConfig } from '../../config/config';
+import { Config } from '../../config/config';
 
 const router = express.Router();
 
@@ -29,8 +29,8 @@ router.post('/', (req: express.Request, res: express.Response, next?: express.Ne
 	/**
 	 * Sign JWT
 	 */
-	const token = jwt.sign({}, jwtConfig.secret, {
-		...jwtConfig.options,
+	const token = jwt.sign({}, Config.JWT.secret, {
+		...Config.JWT.options,
 		algorithm: 'HS256',
 	});
 
@@ -39,8 +39,8 @@ router.post('/', (req: express.Request, res: express.Response, next?: express.Ne
 	 */
 	res.status(200).json({
 		access_token: token,
-		expires_at: moment().add(jwtConfig.options.expiresIn, 'seconds').format('x'),
-		expires_in: jwtConfig.options.expiresIn,
+		expires_at: moment().add(Config.JWT.options.expiresIn, 'seconds').format('x'),
+		expires_in: Config.JWT.options.expiresIn,
 		token_type: 'bearer',
 	});
 });

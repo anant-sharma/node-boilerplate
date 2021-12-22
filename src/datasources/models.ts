@@ -5,9 +5,9 @@
 
 import * as mongoose from 'mongoose';
 
-import { dbConfig } from '../config/config';
+import { Config } from '../config/config';
 
 /**
  * Mongoose Connection
  */
-export const Connection = mongoose.connect(dbConfig.connectionString);
+export const Connection = mongoose.connect(Config.DB.connectionString);

@@ -12,7 +12,7 @@ export class Clock {
 	public timestamp: any;
 
 	constructor() {
-		this.timestamp = moment().format('x');
+		this.timestamp = moment().format();
 	}
 
 	public getTimestamp() {

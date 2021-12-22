@@ -1,12 +1,12 @@
 /**
  * Module Dependencies
  */
-import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import { appConfig } from './config/config';
+import { Logger } from './common/logger';
+import { Config } from './config/config';
 import router from './routes/router';
 
 const initAppServer = () => {
@@ -18,17 +18,19 @@ const initAppServer = () => {
 	app.use(morgan('dev'));
 	app.use(cors());
 	app.use(helmet());
-	app.use(bodyParser.json({ limit: 524288000 }));
-	app.use(bodyParser.urlencoded({ extended: true, limit: 524288000 }));
+	app.use(express.json({ limit: 524288000 }));
+	app.use(express.urlencoded({ extended: true, limit: 524288000 }));
 
 	app.use(router);
 
-	app.listen(appConfig.port, () => {
-		console.log(`Server Started on Port ${appConfig.port}`);
+	app.listen(Config.App.port, () => {
+		Logger.Info(`Server Started on Port ${Config.App.port}`);
 	});
 };
 
 const init = () => {
+	Config.Init();
+	Logger.Init();
 	initAppServer();
 };
 init();

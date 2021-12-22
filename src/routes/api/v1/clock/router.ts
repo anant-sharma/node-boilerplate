@@ -15,15 +15,10 @@ const router = express.Router();
  */
 router.get('/', (req: express.Request, res: express.Response) => {
 	/**
-	 * Create clock
-	 */
-	const clock = new Clock();
-
-	/**
 	 * Get Timestamp
 	 */
 	try {
-		const timestamp = clock.getTimestamp();
+		const timestamp = Clock.getTimestamp();
 		res.status(200).json({
 			timestamp,
 		});
